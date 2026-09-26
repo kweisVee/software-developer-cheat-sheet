@@ -6,12 +6,8 @@ export default async function Home() {
 
   return (
     <main>
-      <h1>Categories</h1>
-      <ul>
-        {allCategories.map((category) => (
-          <li key={category.id}>{category.name}</li>
-        ))}
-      </ul>
+      <h1>HELLO</h1>
     </main>
   );
 }
+

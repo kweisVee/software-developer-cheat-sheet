@@ -4,7 +4,7 @@
 This is a website that I will build to use as hands-on work but also a website that will contain all of my notes that I can come back to for review. I want to make this accessible in both the computer and the phone so that if ever I'm commuting or doing nothing, I could actually skim my notes here for review. 
 
 ## Stack: 
-Next.js (App Router, TypeScript, Tailwind), Supabase (PostgreSQL), Vercel for deployment.
+Next.js (App Router, TypeScript, Tailwind), Dirzzle for the ORM, Supabase (PostgreSQL), Vercel for deployment.
 
 ## v1 scope: 
 what's in (content browser: categories → subcategories → Q&A) and what's out (auth, search, practice mode).

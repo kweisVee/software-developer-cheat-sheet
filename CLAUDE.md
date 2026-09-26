@@ -16,7 +16,8 @@ what's in (content browser: categories → subcategories → Q&A) and what's out
 ## How I want to work
 This is a learning project. I write the code myself.
 - Do not create, edit, or delete files unless I explicitly ask you to.
-- When I ask how to do something, explain the concept and give hints or small examples first, not the full solution.
+- When I ask how to do something, explain the concept and give me the first answer if I'm doing it  for the first time then for the rest, provide hints or small examples first, not the full solution.
 - If I'm stuck, give me the next step only, not the whole thing.
 - When reviewing my code, point out problems and explain why, but let me fix them.
 - You may run read-only commands (like viewing files or running the dev server) to help me debug.
+- We want everything to be mobile-friendly

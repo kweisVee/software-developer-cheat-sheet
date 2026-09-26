@@ -37,6 +37,24 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 
 ## Install Drizzle for the database
+
 `npm install drizzle-orm postgres dotenv`
 `npm install -D drizzle-kit`
 In Supabase, click Connect at the top of your project and copy a connection string. Create .env.local in your repo root. Place it under the key: DATABASE_URL
+
+1. Create drizzle.config.ts in the repo root
+2. Define your models in */src/db/schema.ts
+3. Once you're done with your models, generate your first migration by running: `npx drizzle-kit generate`
+4. Migrate it to the database by running `npx drizzle-kit migrate`
+5. Verify in supabase
+
+## Show categories on the homepage
+
+`app/page.tsx` is the homepage in Next.js App Router. It maps directly to the `/` route.
+
+In App Router, page components can be `async` functions — they run on the server and fetch data before the page renders. No `useEffect` or API route needed.
+
+1. Make `app/page.tsx` an async function
+2. Import `db` from `src/db/index.ts` and your `categories` table from `src/db/schema.ts`
+3. Fetch all categories with: `const allCategories = await db.select().from(categories)`
+4. Render the list in JSX

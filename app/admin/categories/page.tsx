@@ -1,5 +1,6 @@
 import { db } from "@/src/db";
 import { categories } from "@/src/db/schema";
+import { redirect } from "next/navigation";
 
 export default async function Home() {
   const allCategories = await db.select().from(categories);
@@ -8,7 +9,10 @@ export default async function Home() {
     "use server";
     const name = formData.get("name") as string;
     const slug = formData.get("slug") as string;
-    await db.insert(categories).values({ name, slug });
+    const parentIdRaw = formData.get("parentId") as string;
+    const parentId = parentIdRaw ? Number(parentIdRaw) : null;
+    await db.insert(categories).values({ name, slug, parentId });
+    redirect("/admin/categories");
   }
 
   return (
@@ -23,6 +27,12 @@ export default async function Home() {
                 <label htmlFor="slug">Slug </label>
                 <input id="slug" name="slug" type="text" required />
             </div>
+            <select id="parent-category-select" name="parentId">
+                <option value="">None (top-level)</option>
+                {allCategories.map((category => (
+                    <option key={category.id} value={category.id}>{category.name}</option>
+                )))}
+            </select>
             <button type="submit">Add Category</button>
         </form>
         <br />

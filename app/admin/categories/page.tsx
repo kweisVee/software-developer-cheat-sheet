@@ -27,12 +27,14 @@ export default async function Home() {
                 <label htmlFor="slug">Slug </label>
                 <input id="slug" name="slug" type="text" required />
             </div>
-            <select id="parent-category-select" name="parentId">
-                <option value="">None (top-level)</option>
-                {allCategories.map((category => (
-                    <option key={category.id} value={category.id}>{category.name}</option>
-                )))}
-            </select>
+            <div>
+                <select id="parent-category-select" name="parentId">
+                    <option value="">None (top-level)</option>
+                    {allCategories.map((category => (
+                        <option key={category.id} value={category.id}>{category.name}</option>
+                    )))}
+                </select>
+            </div>
             <button type="submit">Add Category</button>
         </form>
         <br />

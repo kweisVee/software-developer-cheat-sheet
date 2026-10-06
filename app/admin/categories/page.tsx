@@ -22,7 +22,7 @@ export default async function Home() {
             <div>
                 <label htmlFor="name">Name </label>
                 <input id="name" name="name" type="text" required />
-                </div>
+            </div>
             <div>
                 <label htmlFor="slug">Slug </label>
                 <input id="slug" name="slug" type="text" required />

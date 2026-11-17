@@ -11,7 +11,7 @@ export default async function CategoriesPage() {
                 <h1 className="text-3xl font-bold">Categories</h1>
             </div>
             <div className="categories-list">
-                <ul className="mt-4 space-y-2">
+                <ul className="flex flex-wrap gap-3 mt-4 space-y-2">
                     {allCategories.map((category => (
                         <li className="border rounded-lg p-4 hover:bg-gray-100" key={category.id}>
                             <Link className="block font-medium text-blue-600" href={`/categories/${category.slug}`}>

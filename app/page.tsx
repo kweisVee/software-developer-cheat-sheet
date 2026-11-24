@@ -1,9 +1,13 @@
 import { db } from "@/src/db";
-import { categories } from "@/src/db/schema";
+import { categories, questions } from "@/src/db/schema";
 import Link from "next/link";
+import { ChevronRight } from "lucide-react";
+
+export const dynamic = "force-dynamic";
 
 export default async function Home() {
   const allCategories = await db.select().from(categories);
+  const allQuestions = await db.select().from(questions);
 
   return (
     <main className="min-h-screen px-4 md:px-20 pt-5" style={{ backgroundColor: "#202124" }}>
@@ -27,9 +31,15 @@ export default async function Home() {
           <ul className="space-y-2 mt-4">
             {allCategories.map((category => (
               <Link key={category.id} href={`/categories/${category.slug}`}>
-                <li className="flex justify-between items-center mb-2 px-4 py-3 rounded-lg cursor-pointer text-white 
+                <li className="flex justify-between items-center mb-2 px-4 py-3 rounded-lg cursor-pointer text-white
                       font-semibold bg-[#1a2438] hover:bg-[#22304a]" style={{border: "1px solid #2a3957"}}>
-                  {category.name}
+                  <div>
+                    {category.name}
+                    <span style={{ color: "#a9b4c9"}} className="text-xs ml-2 font-normal">
+                      {allQuestions.filter(q => q.categoryId === category.id).length} questions{" · "}{allCategories.filter(c => c.parentId === category.id).length} sub-categories
+                    </span>
+                  </div>
+                  <ChevronRight size={22} strokeWidth={2.25} className="text-[#8ab4f8]" aria-hidden="true" />
                 </li>
               </Link>
             )))}

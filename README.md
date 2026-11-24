@@ -36,6 +36,16 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
 
+## Running in Docker
+- Run your docker
+- Pack a new box:
+    - `docker build -t reviewprep .`
+- Open the box: 
+    - `docker run -p 3000:3000 --env-file .env.docker reviewprep`
+- http://localhost:3000
+
+
+
 ## Install Drizzle for the database
 
 `npm install drizzle-orm postgres dotenv`

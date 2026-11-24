@@ -2,6 +2,8 @@ import { db } from "@/src/db";
 import { categories } from "@/src/db/schema";
 import Link from "next/link"
 
+export const dynamic = "force-dynamic";
+
 export default async function CategoriesPage() {
     const allCategories = await db.select().from(categories);
 

@@ -1,6 +1,7 @@
 
 import { db } from "@/src/db";
 import { categories, questions } from "@/src/db/schema";
+export const dynamic = "force-dynamic";
 
 export default async function Questions() {
     const allCategories = await db.select().from(categories);
